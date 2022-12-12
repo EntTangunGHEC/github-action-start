@@ -85,13 +85,13 @@ jobs:
 
       # Update README to close <details id=0> and open <details id=1>   추가 정보를 업데이트하며 <detail id=0>을 닫고 <세부 정보 ID =1> 을 엽니다
       # and set STEP to '1'
-      - name: Update to step 1
-        uses: skills/action-update-step@v1
-        with:
-          token: ${{ secrets.TOKEN }}
-          from_step: 0
-          to_step: 1
-          branch_name: welcome-workflow
+#      - name: Update to step 1
+#        uses: skills/action-update-step@v1
+#        with:
+#          token: ${{ secrets.TOKEN }}
+#          from_step: 0
+#          to_step: 1
+#          branch_name: welcome-workflow
 
 # 
 #
