@@ -8,9 +8,9 @@ name: Step 0, Start
 # Reference https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  #push:
+  #  branches:
+  #    - main
 
 # Reference https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 permissions:
@@ -63,15 +63,19 @@ jobs:
           echo "Make a commit"   
           git config user.name github-actions      # 사용자 이름 설정 config
           git config user.email github-actions@github.com  # 사용자 email 설정 config
-          git commit --allow-empty --message="Create an empty commit"   #  commit 함
+          git commit --allow-empty --message="Create an empty commit"   #  터미널에서 메시지가 없는 빈 커밋을 작성하려면 --allow-empty-message 옵션을 사용합니다.
           
           echo "Push"
-          git push --set-upstream origin $BRANCH
+          git push --set-upstream origin $BRANCH    # 원격 서버의 welcome-workflow의 추가합니다.
 
           echo "Make a pull request"
           # Reference https://cli.github.com/manual/gh_pr_create
-          gh pr create --title "Post welcome comment workflow" --body "Post welcome comment workflow"
-
+          gh pr create --title "Post welcome comment workflow" --body "Post welcome comment workflow"  
+          
+          # gh pr은 github에서 pull request를 만드는 작업입니다.
+          # --title 풀 요청 제목
+          # --body 풀 리퀘스트의 body
+          
           echo "Restore main"
           git checkout main
         env:
