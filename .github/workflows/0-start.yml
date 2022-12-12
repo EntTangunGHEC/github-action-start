@@ -64,7 +64,9 @@ jobs:
           git config user.name github-actions      # 사용자 이름 설정 config
           git config user.email github-actions@github.com  # 사용자 email 설정 config
           git commit --allow-empty --message="Create an empty commit"   #  터미널에서 메시지가 없는 빈 커밋을 작성하려면 --allow-empty-message 옵션을 사용합니다. 빈커밋을 작성하는 이유는 id가 1로 하기 위해서가 아닐까?
-          
+           # 빈커밋은 (해당 커밋의 보모 커밋과 상태가 동일한 커밋) 오류로 취급된다.
+           
+           
           echo "Push"
           git push --set-upstream origin $BRANCH    # 원격 서버의 welcome-workflow의 추가합니다.
 
@@ -81,12 +83,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
 
-      # Update README to close <details id=0> and open <details id=1>
+      # Update README to close <details id=0> and open <details id=1>   추가 정보를 업데이트하며 <detail id=0>을 닫고 <세부 정보 ID =1> 을 엽니다
       # and set STEP to '1'
-#      - name: Update to step 1
-#        uses: skills/action-update-step@v1
-#        with:
-#          token: ${{ secrets.TOKEN }}
-#          from_step: 0
-#          to_step: 1
-#          branch_name: welcome-workflow
+      - name: Update to step 1
+        uses: skills/action-update-step@v1
+        with:
+          token: ${{ secrets.TOKEN }}
+          from_step: 0
+          to_step: 1
+          branch_name: welcome-workflow
+
+# action-update-step은 
+# 말 그대로 위에서 실행한 script 파일들의 내용을 원격 서버에 반영하는 action이다.  (즉 저 명령어들은 결국 runner에서만 실행되는 것 적용하려면 이 action이 필요하다)
