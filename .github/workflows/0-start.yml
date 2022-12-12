@@ -14,9 +14,9 @@ on:
 
 # Reference https://docs.github.com/en/actions/security-guides/automatic-token-authentication
 permissions:
-  # Need `contents: read` to checkout the repository
-  # Need `contents: write` to update the step metadata
-  # Need `pull-requests: write` to create a pull request
+  # Need `contents: read` to checkout the repository  /저장소를 체크아웃하려면 content : read 가 필요합니다. 
+  # Need `contents: write` to update the step metadata  /마타데이터를 업데이트하려면 contents: write가 필요합니다. 
+  # Need `pull-requests: write` to create a pull request /pull request를 만드려면 pull-request: write 권한이 필요합니다.
   contents: write
   pull-requests: write
 
@@ -24,23 +24,23 @@ jobs:
   on_start:
     name: On start
 
-    # We will only run this action when:
-    # 1. This repository isn't the template repository
+    # We will only run this action when:  다음과 같은 경우만 작업을 실행합니다.
+    # 1. This repository isn't the template repository  이 리포지토리는 템플릿 리포지토리가 아닙니다.
     # Reference https://docs.github.com/en/actions/learn-github-actions/contexts
     # Reference https://docs.github.com/en/actions/learn-github-actions/expressions
     if: ${{ !github.event.repository.is_template }}
 
-    # We'll run Ubuntu for performance instead of Mac or Windows
+    # We'll run Ubuntu for performance instead of Mac or Windows  우리는 맥이나 윈도우 대신 성능을 위해 ubuntu를 사용할 것입니다
     runs-on: ubuntu-latest
 
     steps:
-      # We'll need to check out the repository so that we can edit the README
+      # We'll need to check out the repository so that we can edit the README  /README 파일을 편집할 수 있도록 저장소를 체크아웃해야 합니다.
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # Let's get all the branches
+          fetch-depth: 0 # Let's get all the branches  /모든 branches 를 가지고 옵니다 (모든 commit를 자기고 온다는 뜻 같음)
 
-      # Make a branch, file, commit, and pull request for the learner
+      # Make a branch, file, commit, and pull request for the learner /학습자를 위한 분기, 파일, 커및 끌어오기 요청 만들기  
       - name: Prepare a pull request, branch, and file
         run: |
           echo "Make sure we are on step 0"
