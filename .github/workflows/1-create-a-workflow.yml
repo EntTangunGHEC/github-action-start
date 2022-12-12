@@ -38,7 +38,7 @@ jobs:
         with:
           fetch-depth: 0 # Let's get all the branches
 
-      # Verify the learner added the file contents  # 학습자가 파일 콘텐츠를 추가했는지 확인
+      # Verify the learner added the file contents  # 학습자가 파일 콘텐츠를 추가했는지 확인 
       - name: Check workflow contents, name
         run: ./.github/script/check-file.sh 
         env:
