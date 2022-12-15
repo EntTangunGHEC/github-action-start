@@ -2,7 +2,7 @@ name: Reusable Workflow
 
 on:
   push:
-  workflow_call:
+  workflow_call:   #이 workflow_call 이 있어야만 재사용이 가능함
     inputs:
       username:
         required: true
