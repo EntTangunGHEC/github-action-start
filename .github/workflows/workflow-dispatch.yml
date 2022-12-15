@@ -2,9 +2,9 @@ on:
   workflow_dispatch:
     inputs:
       logLevel:
-        description: 'Log level'     
-        required: false
-        default: 'warning'
+        description: 'Log level'    # 이건 workflow_dispatch를 통해 보여지는 aciton console  화면에서 입력란에 대한 설명을 설정한다.
+        required: false             # 이건 true를 할 경우 입력란에 필수라는 것을 *로 표시해주는 옵션이다.
+        default: 'warning'          # 이건 입력값을 넣지 않으면 기본적으로 들어가는 .
       tags:
         description: 'Test scenario tags'
 
