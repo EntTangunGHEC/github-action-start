@@ -9,3 +9,7 @@ jobs:
       - run: gh api /repos/limsangwoonkk/github-action-start/dispatches -f event_type='demo_event'   # actions 에는 gh cli 가 설치되어 있기 때문에 사용기 가능하다.
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
+
+
+# 이 workflow의 workflow_dispatch를 이용해 api를 통해 data 가 가면 이제 repository_dispatch가 작동되는 것이다.
