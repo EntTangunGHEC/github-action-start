@@ -17,3 +17,7 @@ jobs:
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
 
+
+
+# composite 는 용도를 따지면 재사용할 수 있는 워크플로우와 거의 동일하다
+# https://blog.outsider.ne.kr/1592
