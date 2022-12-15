@@ -1,0 +1,11 @@
+name: Trigger repository_dispatch
+
+on: workflow_dispatch
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh api /repos/limsangwoonkk/github-action-start/dispatches -f event_type='demo_event'   # actions 에는 gh cli 가 설치되어 있기 때문에 사용기 가능하다.
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
