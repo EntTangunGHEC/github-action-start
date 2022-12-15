@@ -1,0 +1,12 @@
+name: Caller Workflow
+
+on:
+  push:
+
+jobs:
+  call-workflow-1-in-local-repo:
+    uses: ./.github/workflows/reusable-workfow.yml
+    with:
+      username: outsider
+    secrets:
+      SECRET_SEED: world
