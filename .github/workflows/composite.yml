@@ -21,4 +21,4 @@ jobs:
 
 
 # composite 는 용도를 따지면 재사용할 수 있는 워크플로우와 거의 동일하다
-# https://blog.outsider.ne.kr/1592
+# https://blog.outsider.ne.kr/1592   이 블로그를 참고하는 이유는 일단 docs를 번역했다는 것 그리고 conposite는 꼭 봐야하는 이유가 있다면 앞 부분을 봐야 실습이 진행이됨
