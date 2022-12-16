@@ -1,0 +1,15 @@
+name: workflow-commands
+
+on: 
+  push:
+    branches: [ main ]
+
+jobs:
+  commands: 
+    runs-on: ubuntu-latest
+    - name: workflow commands logging messages
+    run: |
+      echo "::debug::This is a debug message"
+      echo "This is an info message"
+      echo "::error::This is an error message"
+      echo "::warning::This is a warning message"
